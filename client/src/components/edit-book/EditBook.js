@@ -48,14 +48,14 @@ class CreateBook extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
+    const id = this.props.match.params.id;
     const bookData = {
       title: this.state.title,
       author: this.state.author,
       pages: this.state.pages,
     };
 
-    this.props.updateBook(bookData, this.props.history);
+    this.props.updateBook(id,bookData);
   }
 
   onChange(e) {

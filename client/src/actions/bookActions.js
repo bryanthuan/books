@@ -69,9 +69,9 @@ export const getBook = id => dispatch => {
 };
 
 // Patch Book
-export const updateBook = id => dispatch => {
+export const updateBook = (id, data) => dispatch => {
   axios
-    .patch(`/api/books/${id}`)
+    .patch(`/api/books/${id}`,data)
     .then(res =>
       dispatch({
         type: UPDATE_BOOK,
