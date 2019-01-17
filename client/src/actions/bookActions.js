@@ -75,7 +75,7 @@ export const updateBook = (id, data) => dispatch => {
     .then(res =>
       dispatch({
         type: UPDATE_BOOK,
-        payload: id
+        payload: res.data
       })
     )
     .catch(err =>
