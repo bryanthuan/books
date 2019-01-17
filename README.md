@@ -21,3 +21,11 @@ This is the test
 ## How to use CRUD
 1. Sign up an account
 2. login with that account, you will see a dashboard
+
+## Progress
+1. Listing : done
+2. Update + view: done
+3. Delete : done in api
+## Extra feature :
+1. Add securied auth for api
+2. One time run dev
