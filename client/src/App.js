@@ -19,7 +19,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import CreateBook from './components/create-book/CreateBook';
 import EditBook from './components/edit-book/EditBook';
 import Books from './components/books/Books';
-// import Book from './components/book/Book';
+import Book from './components/book/Book';
 import NotFound from './components/not-found/NotFound';
 
 import './App.css';
@@ -57,7 +57,7 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/books" component={Books} />
-              {/* <Route exact path="/profile/:handle" component={Profile} /> */}
+              <Route exact path="/books/:id" component={Book} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>

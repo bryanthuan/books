@@ -2,61 +2,78 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import ProfileHeader from './ProfileHeader';
-import ProfileAbout from './ProfileAbout';
-import ProfileCreds from './ProfileCreds';
-import ProfileGithub from './ProfileGithub';
 import Spinner from '../common/Spinner';
-import { getProfileByHandle } from '../../actions/profileActions';
+import { getBook } from '../../actions/bookActions';
+import isEmpty from '../../validation/is-empty';
 
-class Profile extends Component {
+class Book extends Component {
   componentDidMount() {
-    if (this.props.match.params.handle) {
-      this.props.getProfileByHandle(this.props.match.params.handle);
+    if (this.props.match.params.id) {
+      this.props.getBook(this.props.match.params.id);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.profile.profile === null && this.props.profile.loading) {
+    if (nextProps.book.book === null && this.props.book.loading) {
       this.props.history.push('/not-found');
     }
   }
 
   render() {
-    const { profile, loading } = this.props.profile;
-    let profileContent;
+    const { book, loading } = this.props.book;
+    let bookContent;
 
-    if (profile === null || loading) {
-      profileContent = <Spinner />;
+    if (book === null || loading) {
+      bookContent = <Spinner />;
     } else {
-      profileContent = (
+      bookContent = (
         <div>
           <div className="row">
             <div className="col-md-6">
-              <Link to="/profiles" className="btn btn-light mb-3 float-left">
-                Back To Profiles
+              <Link to="/books" className="btn btn-light mb-3 float-left">
+                Back To Books
               </Link>
             </div>
-            <div className="col-md-6" />
+
+            <div className="card card-body bg-light mb-3">
+              <div className="row">
+                <div className="col-2">
+                  <img src={book.coverUrl} alt="" className="rounded-circle" />
+                </div>
+                <div className="col-lg-6 col-md-4 col-8">
+                  <h3>{book.title}</h3>
+                  <p>
+                    {isEmpty(book.author) ? null : (
+                      <span>at {book.author}</span>
+                    )}
+                  </p>
+                  <p>
+                    {isEmpty(book.published_date) ? null : (
+                      <span>{book.published_date}</span>
+                    )}
+                  </p>
+                  <p>
+                    {isEmpty(book.pages) ? null : (
+                      <span>{book.pages}</span>
+                    )}
+                  </p>
+                </div>
+                <div className="col-md-4 d-none d-md-block">
+                  <h4>Available</h4>
+                  <span>{book.available}</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <ProfileHeader profile={profile} />
-          <ProfileAbout profile={profile} />
-          <ProfileCreds
-            education={profile.education}
-            experience={profile.experience}
-          />
-          {profile.githubusername ? (
-            <ProfileGithub username={profile.githubusername} />
-          ) : null}
         </div>
       );
     }
 
     return (
-      <div className="profile">
+      <div className="book">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">{profileContent}</div>
+            <div className="col-md-12">{bookContent}</div>
           </div>
         </div>
       </div>
@@ -64,13 +81,13 @@ class Profile extends Component {
   }
 }
 
-Profile.propTypes = {
-  getProfileByHandle: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+Book.propTypes = {
+  getBookByHandle: PropTypes.func.isRequired,
+  book: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  book: state.book
 });
 
-export default connect(mapStateToProps, { getProfileByHandle })(Profile);
+export default connect(mapStateToProps, { getBook })(Book);

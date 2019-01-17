@@ -30,7 +30,7 @@ class BookItem extends Component {
                 <span>{book.pages}</span>
               )}
             </p>
-            <Link to={`/book/${book._id}`} className="btn btn-info">
+            <Link to={`/books/${book._id}`} className="btn btn-info">
               View Book
             </Link>
           </div>
