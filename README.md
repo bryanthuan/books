@@ -15,6 +15,7 @@ This is the test
     npm i nodemon -g --save
     ```
 6. Start your app
+    ```
     npm run dev
     ```
 ## How to use CRUD
