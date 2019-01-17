@@ -45,7 +45,7 @@ export default function(state = initialState, action) {
     case UPDATE_BOOK:
       return {
         ...state,
-        books: state.books.filter(book => book._id !== action.payload)
+        book: action.payload,
       };
     default:
       return state;

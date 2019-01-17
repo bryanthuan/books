@@ -91,7 +91,7 @@ router.patch(
         if (!book) {
           return res.status(404).send();
         }
-        res.send({ book });
+        return res.json(book)
 
       }).catch(e => res.status(404).send());
   }
