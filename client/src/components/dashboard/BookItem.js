@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 class BookItem extends Component {
   render() {
     const { book } = this.props;
-
     return (
       <tr>
         <th scope="row">{book._id}</th>
@@ -18,7 +17,7 @@ class BookItem extends Component {
           <Link to={`/edit-book/${book._id}`} className="btn btn-info">
             Update
               </Link> |
-           <Link to={`/delete-book/${book._id}`} className="btn btn-info">
+           <Link to={`/delete-book/${book._id}`} className="btn btn-danger">
             Delete
               </Link> </td>
       </tr>
