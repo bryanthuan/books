@@ -3,6 +3,7 @@ import {
   GET_BOOKS,
   GET_BOOK,
   DELETE_BOOK,
+  UPDATE_BOOK,
   BOOK_LOADING
 } from '../actions/types';
 

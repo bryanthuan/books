@@ -14,11 +14,13 @@ class BookItem extends Component {
         <td>{book.author || 'not set'}</td>
         <td>{book.pages}</td>
         <td>{book.published_date}</td>
-        <td>View |
-          <Link to={`/edit-book/`} className="btn btn-info">
+        <td>
+          <Link to={`/edit-book/${book._id}`} className="btn btn-info">
             Update
               </Link> |
-          Delete </td>
+           <Link to={`/delete-book/${book._id}`} className="btn btn-info">
+            Delete
+              </Link> </td>
       </tr>
     );
   }

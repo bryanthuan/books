@@ -7,7 +7,8 @@ import {
   GET_BOOKS,
   GET_BOOK,
   BOOK_LOADING,
-  DELETE_BOOK
+  DELETE_BOOK,
+  UPDATE_BOOK
 } from './types';
 
 // Add Book

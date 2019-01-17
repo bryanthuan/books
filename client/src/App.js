@@ -71,7 +71,7 @@ class App extends Component {
               <Switch>
                 <PrivateRoute
                   exact
-                  path="/edit-book"
+                  path="/edit-book/:id"
                   component={EditBook}
                 />
               </Switch>

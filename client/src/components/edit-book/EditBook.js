@@ -126,6 +126,6 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { updateBook, getCurrentBook })(
+export default connect(mapStateToProps, { updateBook, getBook })(
   withRouter(CreateBook)
 );
