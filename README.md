@@ -25,7 +25,8 @@ This is the test
 ## Progress
 1. Listing : done
 2. Update + view: done
-3. Delete : done in api
+3. Delete : done in api, not yet done in react
+4. Deploy on server or docker : not done yet.
 ## Extra feature :
 1. Add securied auth for api
 2. One time run dev
