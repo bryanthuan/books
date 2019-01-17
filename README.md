@@ -17,3 +17,6 @@ This is the test
 6. Start your app
     npm run dev
     ```
+## How to use CRUD
+1. Sign up an account
+2. login with that account, you will see a dashboard
